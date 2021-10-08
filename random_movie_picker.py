@@ -1,5 +1,4 @@
 import random
-import time
 import requests
 from tkinter import *
 from bs4 import BeautifulSoup
