@@ -1,6 +1,6 @@
 import random
+import tkinter
 import requests
-from tkinter import *
 from bs4 import BeautifulSoup
 
 
@@ -19,17 +19,17 @@ def pick():
 
 def re_run():
     # cover up the earlier label
-    blank = Label(root, text=f"{' '*100}\n{' '*100}", bg='black')
+    blank = tkinter.Label(root, text=f"{' '*100}\n{' '*100}", bg='black')
     blank.grid(column=0, row=1, padx=10, pady=10, columnspan=20)
     # generate new one
-    label1 = Label(root, text=pick(), bg='black', fg='white')
+    label1 = tkinter.Label(root, text=pick(), bg='black', fg='white')
     label1.grid(column=0, row=1, padx=10, pady=10, columnspan=20)
 
 
 def main():
     root.title("Choose It")
     root.geometry('327x200')
-    button1 = Button(root, text=" Generate ", command=re_run)
+    button1 = tkinter.Button(root, text=" Generate ", command=re_run)
     button1.grid(column=0, row=0, padx=10, pady=10)
     root.mainloop()
 
@@ -45,13 +45,13 @@ if __name__ == '__main__':
         all_movies = soup.find_all("td", class_="titleColumn")
     except:
         # Warning window
-        root = Tk()
+        root = tkinter.Tk()
         root.title("Choose It")
-        Warn_label = Label(root, text=f"\n⚠ Check Your Internet Connection And Run Again ⚠\n",
-                           fg='red')
-        Warn_label.pack(anchor="center")
+        warn_label = tkinter.Label(root,
+                                   text="\n⚠ Check Your Internet Connection And Run Again ⚠\n",
+                                   fg='red')
+        warn_label.pack(anchor="center")
         root.mainloop()
-        quit()
-
-    root = Tk()
+        exit()
+    root = tkinter.Tk()
     main()
